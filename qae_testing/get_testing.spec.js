@@ -10,6 +10,7 @@ test("GET id Positive", async () => {
     const id = 6871209;
     const response = await axios.get(`${baseURL}/${id}`, {
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
