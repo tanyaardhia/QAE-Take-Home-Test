@@ -3,24 +3,21 @@ import { test, expect } from "@playwright/test";
 const axios = require("axios");
 
 test("POST", async ({}) => {
-  const token = `Bearer ${process.env.ACCESS_TOKEN}`;
+  const token = process.env.ACCESS_TOKEN
   const baseURL = process.env.URL;
   const dataUser = {
-    id: 6871138,
     name: "kucing",
     email: "kucing@mail.com",
     gender: "male",
     status: "inactive",
   };
 
-  const headersAuth = {
-    "Content-Type": "application/json",
-    Authorization: token,
-  };
-
   try {
     const response = await axios.post(baseURL, dataUser, {
-      headers: headersAuth,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }
     });
     
     expect(response.status).toBe(201);
