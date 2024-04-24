@@ -5,6 +5,7 @@ const axios = require("axios");
 test("GET id", async () => {
     try {
       const token = process.env.access_token;
+      console.log('access_token:', token);
       const baseURL = process.env.url;
       const id = 6871209;
       const response = await axios.get(`${baseURL}/${id}`, {
