@@ -5,13 +5,13 @@ const axios = require("axios");
 test("PUT", async () => {
   try {
     const token = process.env.ACCESS_TOKEN;
-    const id = 6871209;
+    const id = 6871523;
     const baseURL = `${process.env.URL}/${id}`;
     const updateData = {
-      name: "kuc0ng",
-      email: "kuc0ng@mail.com",
-      gender: "male",
-      status: "inactive",
+      name: "apollo1234",
+      email: "apollo1234@mail.com",
+      gender: "female",
+      status: "active",
     };
 
     const response = await axios.put(baseURL, updateData, {
@@ -35,7 +35,7 @@ test("PUT", async () => {
 test("PUT Negative : invalid Request", async () => {
   try {
     const token = process.env.ACCESS_TOKEN;
-    const id = 6871209;
+    const id = 6871523;
     const baseURL = `${process.env.URL}/${id}`;
     const updateData = {
       name: "kuc0ng",
