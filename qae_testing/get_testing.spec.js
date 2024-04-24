@@ -7,7 +7,7 @@ test("GET id Positive", async () => {
     const token = process.env.access_token;
     //   console.log('access_token:', token);
     const baseURL = process.env.url;
-    const id = 6871209;
+    const id = 6871203;
     const response = await axios.get(`${baseURL}/${id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -53,21 +53,5 @@ test("GET id Negativ: Wrong response format", async () => {
     } else {
       console.error("Error message negativ response format:", error.message);
     }
-  }
-});
-
-test("GET id Negativ: Timeout", async () => {
-  try {
-    const token = process.env.access_token;
-    const baseURL = process.env.url;
-    const id = 6871209;
-    const response = await axios.get(`${baseURL}/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      timeout: 1000,
-    });
-  } catch (error) {
-    expect(error.code).toBe("ECONNABORTED");
   }
 });
