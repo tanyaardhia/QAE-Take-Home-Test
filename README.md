@@ -1,5 +1,10 @@
 # QAE-Take-Home-Test
 
+**Link Screen Record hasil testing automated**
+```bash
+https://drive.google.com/drive/folders/1eL6FzwJLp7w-Vlj6epKTsEztdp5AGLKh?usp=sharing
+```
+
 **Pengujian Otomatis Pembuatan Pengguna API**
 
 Proyek ini bertujuan untuk melakukan pengujian otomatis terhadap API Pembuatan Pengguna menggunakan Playwright untuk pengujian UI dan Axios untuk pengujian API.
