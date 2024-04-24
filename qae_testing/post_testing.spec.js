@@ -7,8 +7,8 @@ test("POST", async () => {
   const baseURL = process.env.url
   const dataUser = {
     id: 6871138,
-    name: "oxiee",
-    email: "oxiee@mail.com",
+    name: "miyo",
+    email: "miyo@mail.com",
     gender: "male",
     status: "inactive",
   };
@@ -23,20 +23,23 @@ test("POST", async () => {
       headers: headersAuth,
     });
     expect(response.status).toBe(201);
-    expect(response.data.name).toBe("oxiee");
-    expect(response.data.email).toBe("oxiee@mail.com");
+    expect(response.data.name).toBe("miyo");
+    expect(response.data.email).toBe("miyo@mail.com");
     expect(response.data.gender).toBe("male");
     expect(response.data.status).toBe("inactive");
   } catch (error) {
     if (error.response) {
-      console.error("respon data:", error.response.data);
-      console.error("status :", error.response.status);
-      console.error("header:", error.response.headers);
-    } else if (error.request) {
-      console.error("No response received:", error.request);
-    } else {
-      console.error("error post:", error.message);
-    }
+        console.error("Response data:", error.response.data);
+        console.error("Status code:", error.response.status);
+        console.error("Response headers:", error.response.headers);
+      } else if (error.request) {
+        console.error("No response received. Request details:", error.request);
+      } else if (error.code === "ECONNREFUSED") {
+        console.error("Connection refused. Please check your internet connection or server availability.");
+      } else {
+        console.error("Error:", error.message);
+      }
+      
   }
 });
 
