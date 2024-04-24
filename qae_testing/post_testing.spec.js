@@ -41,3 +41,34 @@ test("POST", async ({}) => {
     }
   }
 });
+
+test("POST (Negative Case)", async ({}) => {
+    const token = process.env.ACCESS_TOKEN
+    const baseURL = process.env.URL;
+    const dataUser = {
+      name: "poly43",
+      email: "poly43@mail.com",
+      gender: "male",
+      status: "active",
+    };
+  
+    try {
+      const response = await axios.post(baseURL, dataUser, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
+        }
+      });
+      
+      expect(response.status).toBe(201);
+      expect(response.data.name).toBe(dataUser.name);
+      expect(response.data.email).toBe(dataUser.email);
+      expect(response.data.gender).toBe(dataUser.gender);
+      expect(response.data.status).toBe(dataUser.status);
+      
+      console.log("User created successfully!");
+    } catch (error) {
+      expect(error.response.status).toBe(401);
+      console.error("Negative case test passed successfully!");
+    }
+  });
