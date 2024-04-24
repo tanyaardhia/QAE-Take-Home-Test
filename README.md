@@ -20,7 +20,7 @@ Proyek ini bertujuan untuk melakukan pengujian otomatis terhadap API Pembuatan P
 2.  **Open Folder**
 
     ```bash
-    jika, sudah melalukan git clone. tahap selanjutnya, membuka file nya dengan klik kanan lalu buka Terminal dan ketik "code ."
+    jika sudah melalukan git clone. tahap selanjutnya, membuka file nya dengan klik kanan lalu buka Terminal dan ketik "code ."
     ```
 
 3.  **Install Dependencies**
