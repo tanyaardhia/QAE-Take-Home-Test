@@ -33,7 +33,7 @@ test("GET id Positive", async () => {
   }
 });
 
-test("GET id Negativ: Wrong response format", async () => {
+test("GET id Negativ Wrong response format", async () => {
   try {
     const token = process.env.access_token;
     const baseURL = process.env.url;

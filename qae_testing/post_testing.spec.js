@@ -2,7 +2,7 @@ require('dotenv').config();
 import { test, expect } from "@playwright/test";
 const axios = require("axios");
 
-test("POST", async ({}) => {
+test("POST Posituve", async ({}) => {
   const token = process.env.ACCESS_TOKEN
   const baseURL = process.env.URL;
   const dataUser = {

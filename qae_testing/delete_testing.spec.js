@@ -2,7 +2,7 @@ require("dotenv").config();
 import { test, expect } from "@playwright/test";
 const axios = require("axios");
 
-test("DELETE Positive: Success Req by ID", async () => {
+test("DELETE Positive Success Req by ID", async () => {
   try {
     const token = process.env.ACCESS_TOKEN;
     const id = 6871545;
@@ -27,7 +27,7 @@ test("DELETE Positive: Success Req by ID", async () => {
 });
 
 
-test("DELETE Negative: Resource Not Found", async () => {
+test("DELETE Negative Resource Not Found", async () => {
   try {
     const token = process.env.ACCESS_TOKEN;
     const id = 9575437;
