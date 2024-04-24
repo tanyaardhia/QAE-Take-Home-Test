@@ -8,8 +8,8 @@ test("PUT", async () => {
     const id = 6871209;
     const baseURL = `${process.env.URL}/${id}`;
     const updateData = {
-      name: "kucing",
-      email: "kucing@mail.com",
+      name: "kuc0ng",
+      email: "kuc0ng@mail.com",
       gender: "male",
       status: "inactive",
     };
@@ -20,5 +20,46 @@ test("PUT", async () => {
         Authorization: `Bearer ${token}`,
       },
     });
-  } catch (error) {}
+
+    console.log("Response:", response.data);
+  } catch (error) {
+    if (error.response) {
+      console.log("response status:", error.response.status);
+      console.log("response body:", error.response.data);
+    } else {
+      console.error("Error message:", error.message);
+    }
+  }
+});
+
+test("PUT Negative : invalid Request", async () => {
+  try {
+    const token = process.env.ACCESS_TOKEN;
+    const id = 6871209;
+    const baseURL = `${process.env.URL}/${id}`;
+    const updateData = {
+      name: "kuc0ng",
+      email: "kuc0ngmail.com",
+      gender: "male",
+      status: "inactive",
+    };
+
+    const response = await axios.put(baseURL, updateData, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    if (error.response) {
+      console.error("Response data:", error.response.data);
+      console.error("Status code:", error.response.status);
+      expect(error.response.status).toBe(422);
+      expect(error.response.data[0].message).toBe("is invalid");
+    } else if (error.request) {
+      console.error("No response received:", error.request);
+    } else {
+      console.error("Error:", error.message);
+    }
+  }
 });
