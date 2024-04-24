@@ -20,6 +20,7 @@ test("GET id Positive", async () => {
       console.log("response status: ", response.status);
       console.log("response body: ", JSON.stringify(response.data));
       console.log("Response data:", response.data);
+      console.log("Response status code:", response.status);
       expect(response.status).toBe(200);
     } else {
       console.log("response status: ", response.status);
@@ -27,13 +28,11 @@ test("GET id Positive", async () => {
 
     const workBook = new ExcelJS.Workbook();
     const workSheet = workBook.addWorksheet("data");
-
-    const headerRow = workSheet.addRow(["Response", "Status"]);
+    const headerRow = workSheet.addRow(["Response", "Status Code"]);
     const responseData = response.data;
-    console.log(responseData, "get id");
     const dataRow = workSheet.addRow([
-      responseData.response,
-      responseData.status,
+      JSON.stringify(responseData),
+      response.status,
     ]);
 
     await workBook.xlsx.writeFile("get_id_positive.xlsx");
@@ -60,7 +59,7 @@ test("GET id Negativ Wrong response format", async () => {
 
     expect(response.data).toBeDefined();
     expect(typeof response.data).toBe("object");
-    
+
     const workBook = new ExcelJS.Workbook();
     const workSheet = workBook.addWorksheet("data");
     const headerRow = workSheet.addRow(["Status Code", "Error Message"]);
