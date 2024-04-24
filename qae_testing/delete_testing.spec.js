@@ -5,7 +5,7 @@ const axios = require("axios");
 test("DELETE Positive: Success Req by ID", async () => {
   try {
     const token = process.env.ACCESS_TOKEN;
-    const id = 6871198;
+    const id = 6871545;
     const baseURL = `${process.env.URL}/${id}`;
     const response = await axios.delete(baseURL, {
       headers: {
@@ -49,7 +49,7 @@ test("DELETE Negative: Resource Not Found", async () => {
       expect(error.response.status).toBe(404);
       expect(error.response.data).toHaveProperty("message", "Resource not found");
     } else {
-      console.error("Error message DELETE negativ:", error.message);
+      console.error("Error message :", error.message);
     }
   }
 });
